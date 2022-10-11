@@ -1,7 +1,8 @@
 resource "snowflake_table" "events" {
-  database = local.database
-  schema   = snowflake_schema.atomic.name
-  name     = "EVENTS"
+  database        = local.database
+  schema          = snowflake_schema.atomic.name
+  name            = "EVENTS"
+  change_tracking = true
 
   lifecycle {
     ignore_changes  = [column]
